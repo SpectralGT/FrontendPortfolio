@@ -1,5 +1,5 @@
 :root{
- --text-color: #D84040;
+  --text-color: #ff2222;
 }
 
 * {
@@ -12,8 +12,10 @@ body {
   background: linear-gradient(to top, #dddddd 2px, #cccccc 2px);
   background-size: cover;
   background-size: 100% 4px;
-
+  
   width: 100%;
+  overflow-x: hidden;
+  font-family: "Vina Sans", sans-serif;
 }
 
 
@@ -86,5 +88,37 @@ justify-content: center;
 
 
 #about{
-  
+  padding:5rem;
+  /* font-weight: 100; */
+  font-style: normal;
 }
+
+#heading{
+  font-size: 10vw;
+}
+
+#desc {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  font-size: 2rem;
+  text-align: justify;
+}
+
+@keyframes scale-a-lil {
+  from {
+    scale: 0.5;
+    transform: translateX(1000px);
+  }
+}
+  
+
+h2{
+  text-align: center;
+  font-size: 3rem;
+  color: var(--text-color);
+
+    animation: scale-a-lil linear both;
+    animation-timeline: view();
+    animation-range: 25vh 75vh;
+}
+

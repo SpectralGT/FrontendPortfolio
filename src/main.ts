@@ -5,6 +5,10 @@ import Stats from 'three/addons/libs/stats.module.js'
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js'
 import RAPIER from '@dimforge/rapier3d'
 import { RapierPhysics } from 'three/examples/jsm/Addons.js'
+import { gsap } from 'gsap-trial'
+import { SplitText } from 'gsap-trial/SplitText'
+import anime from 'animejs';
+
 // #region Hero Threejs
 
 // await RAPIER.init() // This line is only needed if using the compat version
@@ -20,7 +24,7 @@ const ambientLight = new THREE.AmbientLight();
 ambientLight.intensity = 1;
 scene.add(ambientLight);
 
-const light1 = new THREE.DirectionalLight('#ffffff', 1);
+const light1 = new THREE.DirectionalLight('#ffffff', 2);
 light1.position.set(10, 10, 10)
 // light1.angle = Math.PI / 3
 // light1.penumbra = 0.5
@@ -50,11 +54,11 @@ window.addEventListener('resize', () => {
 
 
 
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 50; i++) {
 
 
     // Ball Collider
-    const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(), new THREE.MeshStandardMaterial({ color: "#ff5555", roughness: 0, metalness: 0 }))
+    const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(), new THREE.MeshStandardMaterial({ color: "#ff2222", roughness: 0, metalness: 0 }))
     sphereMesh.castShadow = true
     scene.add(sphereMesh)
 
@@ -72,8 +76,8 @@ const mouseBallShape = RAPIER.ColliderDesc.ball(3).setMass(1).setRestitution(15)
 world.createCollider(mouseBallShape, mouseBallBody)
 
 
-const stats = new Stats()
-document.body.appendChild(stats.dom)
+// const stats = new Stats()
+// document.body.appendChild(stats.dom)
 
 
 const clock = new THREE.Clock()
@@ -127,7 +131,7 @@ function animate() {
 
     renderer.render(scene, camera)
 
-    stats.update()
+    // stats.update()
 }
 
 animate()
@@ -136,6 +140,31 @@ animate()
 
 // #region TextAnimation
 
+let div = document.querySelector('#name');
+div!.innerHTML = div!.textContent!.replace(/\S/g, "<span class='letter' style='display: inline-block'>$&</span>");
 
+let div2 = document.querySelector('#role');
+div2!.innerHTML = div2!.textContent!.replace(/\S/g, "<span class='letter' style='display: inline-block'>$&</span>");
+
+let timeline = anime.timeline({
+    loop: false,
+    autoplay: true
+    });
+
+    timeline.add({
+        duration: 1000,
+        delay: (el, i) => 70*i,
+        endDelay: 500
+       })
+
+       timeline.add({
+        targets: 'h1 .letter',
+        scale: [4,1],
+        opacity: [0,1],
+        easing: "easeOutExpo",
+        duration: 1000,
+        delay: (el, i) => 70*i,
+        endDelay: 500
+    })
 
 // #endregion
