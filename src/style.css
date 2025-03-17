@@ -1,5 +1,5 @@
-:root{
-  --text-color: #ff2222;
+:root {
+  --text-color: #ff3030;
 }
 
 * {
@@ -8,52 +8,60 @@
   box-sizing: border-box;
 }
 
+html{
+  overflow-x: hidden;
+}
+
 body {
   background: linear-gradient(to top, #dddddd 2px, #cccccc 2px);
   background-size: cover;
   background-size: 100% 4px;
-  
+
   width: 100%;
   overflow-x: hidden;
-  font-family: "Vina Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Electrolize", sans-serif;
+  font-weight: 900;
 }
 
 
-@media screen{
+@media screen {
   body {
-    animation: scanlines infinite 1s linear ;
+    animation: scanlines infinite 1s linear;
   }
-} 
+}
+
 @keyframes scanlines {
   0% {
     background-position: 0 -10px;
   }
+
   50% {
     background-position: 0 0;
   }
 
-  100%{
+  100% {
     background-position: 0 10px;
   }
 }
 
-canvas{
+canvas {
   width: 100%;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  
+
 }
 
-section{
+section {
 
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 
-#hero{
+#hero {
   font-family: "Vina Sans", sans-serif;
   font-weight: 100;
   font-style: normal;
@@ -61,40 +69,44 @@ section{
   line-height: 15vw;
 
 
-display: flex;
-flex-direction: column;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
 }
 
 
-#hero #name{
+#hero #name {
   font-size: 20vw;
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--text-color);
 }
 
-#hero #role{
+#hero #role {
   font-size: 20vw;
   color: var(--text-color);
   /* line-height: 18vw; */
 
 }
 
-.centre{
+.centre {
   margin: auto;
 }
 
 
-#about{
-  padding:5rem;
+#about {
+  padding: 5rem;
   /* font-weight: 100; */
   font-style: normal;
 }
 
-#heading{
+#heading {
+  display: block;
   font-size: 10vw;
+  font-family: "Vina Sans", sans-serif;
+
+
 }
 
 #desc {
@@ -110,26 +122,26 @@ justify-content: center;
     transform: translateX(1000px);
   }
 }
-  
 
-h2{
+
+h2 {
   text-align: center;
   font-size: 3rem;
   color: var(--text-color);
 
-    animation: scale-a-lil linear both;
-    animation-timeline: view();
-    animation-range: 25vh 75vh;
+  animation: scale-a-lil linear both;
+  animation-timeline: view();
+  animation-range: 25vh 75vh;
 }
 
-#skills ul{
+#skills ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  list-style-type:none;
+  list-style-type: none;
 }
 
-#skills li{
+#skills li {
   margin: 1rem;
   width: fit-content;
   background-color: var(--text-color);
@@ -137,4 +149,59 @@ h2{
   color: white;
   font-size: 2rem;
   border-radius: 20px;
+}
+
+#projects {
+  display: block;
+
+}
+
+
+#scrollable {
+ overflow-x: scroll;
+}
+
+#scrollable #wrapper{
+  display: flex;
+  flex-direction: row;
+  width: min-content;
+}
+
+.project {
+  display: block;
+  background-color: transparent;
+  width: 25vw;
+  height: min-content;
+  /* float: left; */
+  border: 1px solid black;
+  margin: 0rem 1rem;
+  text-align: center;
+}
+
+.project img {
+  display: block;
+  height: 20vw;
+  background-color: blue;
+  width: 22vw;
+  margin: 1rem auto;
+}
+
+.project .title{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.project .tags{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.project .tag{
+  flex-grow: 1;
+  border-right: 1px solid black;
+}
+
+.project .tag:last-of-type{
+  border: 0px;
 }
