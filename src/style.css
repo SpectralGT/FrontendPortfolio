@@ -122,3 +122,19 @@ h2{
     animation-range: 25vh 75vh;
 }
 
+#skills ul{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type:none;
+}
+
+#skills li{
+  margin: 1rem;
+  width: fit-content;
+  background-color: var(--text-color);
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 2rem;
+  border-radius: 20px;
+}
