@@ -5,6 +5,7 @@ import Stats from 'three/addons/libs/stats.module.js'
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js'
 import RAPIER from '@dimforge/rapier3d'
 import { RapierPhysics } from 'three/examples/jsm/Addons.js'
+// #region Hero Threejs
 
 // await RAPIER.init() // This line is only needed if using the compat version
 const gravity = new RAPIER.Vector3(0.0, 0.0, 0.0)
@@ -15,21 +16,25 @@ const dynamicBodies: [THREE.Object3D, RAPIER.RigidBody][] = []
 
 const scene = new THREE.Scene()
 
-const light1 = new THREE.SpotLight(undefined, Math.PI * 10)
-light1.position.set(2.5, 5, 5)
-light1.angle = Math.PI / 3
-light1.penumbra = 0.5
+const ambientLight = new THREE.AmbientLight();
+ambientLight.intensity = 1;
+scene.add(ambientLight);
+
+const light1 = new THREE.DirectionalLight('#ffffff', 1);
+light1.position.set(10, 10, 10)
+// light1.angle = Math.PI / 3
+// light1.penumbra = 0.5
 light1.castShadow = true
 light1.shadow.blurSamples = 10
 light1.shadow.radius = 5
 scene.add(light1)
 
 const light2 = light1.clone()
-light2.position.set(-2.5, 5, 5)
-scene.add(light2)
+light2.position.set(10, -1, 10)
+// scene.add(light2)
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
-camera.position.set(0, 0, 10)
+camera.position.set(0, 0, 15)
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
 renderer.setSize(window.innerWidth, window.innerHeight)
@@ -49,7 +54,7 @@ for (let i = 0; i < 30; i++) {
 
 
     // Ball Collider
-    const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(), new THREE.MeshNormalMaterial())
+    const sphereMesh = new THREE.Mesh(new THREE.SphereGeometry(), new THREE.MeshStandardMaterial({ color: "#ff5555", roughness: 0, metalness: 0 }))
     sphereMesh.castShadow = true
     scene.add(sphereMesh)
 
@@ -61,9 +66,6 @@ for (let i = 0; i < 30; i++) {
 
 }
 
-const mouseSphereMesh = new THREE.Mesh(new THREE.SphereGeometry(), new THREE.MeshNormalMaterial())
-mouseSphereMesh.castShadow = true
-scene.add(mouseSphereMesh)
 const mouseBallBody = world.createRigidBody(RAPIER.RigidBodyDesc.kinematicPositionBased().setTranslation(100, 100, 100))
 const mouseBallShape = RAPIER.ColliderDesc.ball(3).setMass(1).setRestitution(15).setFriction(100)
 
@@ -81,7 +83,7 @@ var timeout: any;
 
 window.document.addEventListener('mousemove', (event) => {
     clearTimeout(timeout);
-    timeout = setTimeout(function () { mouseBallBody.setTranslation(new RAPIER.Vector3(100,100,100),false); console.log("mouse stopped") }, 10);
+    timeout = setTimeout(function () { mouseBallBody.setTranslation(new RAPIER.Vector3(100, 100, 100), false); console.log("mouse stopped") }, 10);
 
     var vec = new THREE.Vector3(); // create once and reuse
     var pos = new THREE.Vector3(); // create once and reuse
@@ -123,12 +125,17 @@ function animate() {
         dynamicBodies[i][0].quaternion.copy(dynamicBodies[i][1].rotation())
     }
 
-    mouseSphereMesh.position.copy(mouseBallBody.translation());
-
-
     renderer.render(scene, camera)
 
     stats.update()
 }
 
 animate()
+
+// #endregion
+
+// #region TextAnimation
+
+
+
+// #endregion

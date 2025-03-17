@@ -17,6 +17,8 @@
     "vite-plugin-wasm": "^3.4.1"
   },
   "dependencies": {
+    "gsap": "^3.12.7",
+    "gsap-trial": "^3.12.7",
     "three": "^0.174.0"
   }
 }
