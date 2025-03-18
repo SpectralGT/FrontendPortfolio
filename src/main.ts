@@ -9,6 +9,8 @@ import { gsap } from 'gsap-trial'
 import { SplitText } from 'gsap-trial/SplitText'
 import anime from 'animejs';
 
+import { simulationVertexShader,simulationFragmentShader,renderVertexShader,renderFragmentShader} from "./shader.js"
+
 // #region Hero Threejs
 
 // await RAPIER.init() // This line is only needed if using the compat version
@@ -168,3 +170,11 @@ let timeline = anime.timeline({
     })
 
 // #endregion
+
+// #region fluid Sim
+
+// fluid-overlay.ts
+
+
+// endregion
+
