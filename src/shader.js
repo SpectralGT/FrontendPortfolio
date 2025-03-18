@@ -82,9 +82,9 @@ uniform sampler2D textureB;
 varying vec2 vUv;
 
 void main(){
-    vec$ data = texture2D(textureA,vUv);
+    vec4 data = texture2D(textureA,vUv);
 
-    vec2 distortion = 0.3 * data,zw;
+    vec2 distortion = 0.3 * data.zw;
     vec4 color = texture2D(textureB, vUv+ distortion);
 
     vec3 normal = normalize(vec3(-data.z*2.0, 0.5 , -data.w * 2.0));

@@ -78,7 +78,7 @@ canvas {
 }
 
 #fluid-sim{
-  z-index: 100;
+  z-index: 10000;
 }
 section {
 
@@ -170,11 +170,11 @@ h2 {
 #skills li {
   margin: 1rem;
   width: fit-content;
-  background-color: var(--text-color);
+  background-color:black;
   padding: 0.5rem 1rem;
   color: white;
   font-size: 2rem;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #projects {
@@ -245,3 +245,66 @@ h2 {
 #scrollable::-webkit-scrollbar-thumb {
   background-color: black;
 }
+
+
+
+
+.timeline-wrapper {
+  position: relative;
+  width: max-content;
+  margin: auto;
+  height: 30rem;
+}
+
+.timeline-wrapper .middle-line {
+  position: absolute;
+  width: 100%;
+  height: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: black;
+}
+
+.box {
+  width: 17%;
+  position: relative;
+  min-height: 100%;
+  float: left;
+  margin-left: 1rem;
+}
+
+.box .date {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: ;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0;
+  background: black;
+  color: white;
+  border: 2px solid #d9d9d9;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.date p {
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0px;
+}
+
+.box .box-content {
+  background-color:transparent;
+  width: 100%;
+  border: 1px solid black;
+  padding: 1rem;
+}
+.box-content p {
+  margin: 0;
+  color: white;
+}
+
+.box-bottom .box-content {
+  top: 65%;
+}
+\
