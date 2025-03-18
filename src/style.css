@@ -11,6 +11,7 @@
 html{
   scroll-snap-type: mandatory;
   scroll-snap-type: y mandatory;
+  width: 100%;
 }
 
 
@@ -127,7 +128,6 @@ section {
 
 
 #about {
-  padding: 5rem;
   /* font-weight: 100; */
   font-style: normal;
 }
@@ -136,8 +136,6 @@ section {
   display: block;
   font-size: 10vw;
   font-family: "Vina Sans", sans-serif;
-
-
 }
 
 #desc {
@@ -145,12 +143,13 @@ section {
   grid-row-start: 2;
   font-size: 2rem;
   text-align: justify;
+  padding: 10rem;
 }
 
 @keyframes scale-a-lil {
   from {
     scale: 0.5;
-    transform: translateX(1000px);
+    /* transform: translateX(1000px); */
   }
 }
 
@@ -347,4 +346,62 @@ footer {
 
 .footer-links a:hover {
   color: var(--text-color);
+}
+
+@media screen and (max-width: 768px) {
+  
+#heading{
+  font-size: 4rem;
+}
+
+#about #desc{
+  padding:1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+
+
+#skills ul {
+justify-content: center;
+align-content: center;
+min-height: 80vh;
+}
+
+#skills li {
+  margin: 0.15rem;
+  width: fit-content;
+  background-color:black;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+#scrollable{
+  min-height: 80vh;
+}
+
+.project {
+  margin-top: 10rem;
+  
+}
+
+.project .title{
+  margin-top: 30vh;
+}
+
+
+.timeline-wrapper{
+  margin-top: 10rem;
+}
+
+.box {
+  width: 70vw;
+}
+
+.box .box-content {
+  height: 23vh;
+}
+
 }

@@ -196,7 +196,7 @@ const renderer2 = new THREE.WebGLRenderer({
 
 renderer2.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer2.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer2.domElement);
+// document.body.appendChild(renderer2.domElement);
 
 const mouse = new THREE.Vector2();
 let frame = 0;
