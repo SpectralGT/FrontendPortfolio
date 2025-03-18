@@ -97,7 +97,7 @@ section {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 
 }
 
@@ -277,7 +277,6 @@ h2 {
   position: absolute;
   top: 50%;
   left: 0px;
-  transform: ;
   width: 4rem;
   height: 4rem;
   border-radius: 0;
@@ -307,4 +306,37 @@ h2 {
 .box-bottom .box-content {
   top: 65%;
 }
-\
+
+
+footer {
+  background-color: black; /* Dark background */
+  color:#ccc; /* White text */
+  width: 100%; /* Full width */
+  height: 100vh;
+  padding: 40px 20px; /* Padding for content */
+  box-sizing: border-box; /* Include padding in width calculation */
+  text-align: center; /* Center text */
+  display: flex; /*Use flexbox for easy layout*/
+  flex-direction: column; /*Stack items vertically*/
+  justify-content: center; /*center vertically*/
+  align-items: center; /*center horizontally*/
+}
+
+.footer-content {
+  max-width: 1200px; /* Limit content width for larger screens */
+  width: 100%; /* Take full width within the max-width */
+}
+
+.footer-links {
+  margin-top: 20px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.footer-links a:hover {
+  color: var(--text-color);
+}
