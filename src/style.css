@@ -25,6 +25,29 @@ body {
 }
 
 
+
+body::-webkit-scrollbar {
+  max-width: 10px;
+  background: linear-gradient(to top, #dddddd 2px, #cccccc 2px);
+
+}
+
+body::-webkit-scrollbar-track {
+  margin-top: 1rem;
+  /* border: 1px solid black; */
+  background-color: transparent;
+  
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+body::-webkit-scrollbar-track{
+  
+}
+
+
 @media screen {
   body {
     animation: scanlines infinite 1s linear;
@@ -165,6 +188,7 @@ h2 {
   display: flex;
   flex-direction: row;
   width: min-content;
+  margin-bottom: 1rem;
 }
 
 .project {
@@ -204,4 +228,17 @@ h2 {
 
 .project .tag:last-of-type{
   border: 0px;
+}
+
+#scrollable::-webkit-scrollbar {
+  max-width: 1px;
+}
+
+#scrollable::-webkit-scrollbar-track {
+  margin-top: 1rem;
+  border: 1px solid black;
+}
+ 
+#scrollable::-webkit-scrollbar-thumb {
+  background-color: black;
 }
