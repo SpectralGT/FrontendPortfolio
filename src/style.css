@@ -211,7 +211,7 @@ h2 {
 .project img {
   display: block;
   height: 20vw;
-  background-color: blue;
+  background-color: transparent;
   width: 22vw;
   margin: 1rem auto;
 }
