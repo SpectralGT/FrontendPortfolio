@@ -163,6 +163,7 @@ h2 {
   animation-range: 25vh 75vh;
 }
 
+
 #skills ul {
   display: flex;
   flex-direction: row;
@@ -261,6 +262,8 @@ h2 {
   width: max-content;
   margin: 0px;
   height: 30rem;
+  min-width: 100vw;
+  
 }
 
 .timeline-wrapper .middle-line {
@@ -279,7 +282,10 @@ h2 {
   height: 100%;
   float: left;
   margin-left: 1rem;
+
 }
+
+
 
 .box .date {
   position: absolute;
@@ -307,8 +313,8 @@ h2 {
   border: 1px solid black;
   padding: 1rem;
   height: 30vh;
+  
 }
-
 .box-content p {
   margin: 0;
   color: #555555;
