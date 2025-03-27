@@ -123,7 +123,7 @@ window.document.addEventListener("mousemove", (event) => {
   mouseBallBody.setTranslation(new RAPIER.Vector3(pos.x, pos.y, 0), true);
 });
 
-function animate(element: Element, p0: { opacity: number; x: number[]; }, p1: { duration: number; easing: number[]; }) {
+function animate() {
   requestAnimationFrame(animate);
 
   delta = clock.getDelta();
@@ -175,11 +175,11 @@ let timeline = anime.timeline({
   autoplay: true,
 });
 
-// timeline.add({
-//   duration: 1000,
-//   delay: (_el, i) => 70 * i,
-//   endDelay: 500,
-// });
+timeline.add({
+  duration: 1000,
+  delay: (_el, i) => 70 * i,
+  endDelay: 500,
+});
 
 timeline.add({
   targets: "h1 .letter",
@@ -190,15 +190,6 @@ timeline.add({
   delay: (_el, i) => 70 * i,
   endDelay: 500,
 });
-
-
-
-// @ts-ignore
-// #region Section Text fade in out.
-
-
-  // #endregion
-
 
 
 // #endregion
