@@ -18,9 +18,11 @@
     "vite-plugin-wasm": "^3.4.1"
   },
   "dependencies": {
+    "@types/react-motion": "^0.0.40",
     "animejs": "^3.2.2",
     "gsap": "^3.12.7",
     "gsap-trial": "^3.12.7",
+    "motion": "^12.6.2",
     "three": "^0.174.0"
   }
 }

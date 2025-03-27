@@ -143,10 +143,11 @@ h2 {
   text-align: center;
   font-size: 3rem;
   color: var(--text-color);
-
+  margin-top: 1rem;
+/* 
   animation: scale-a-lil linear both;
   animation-timeline: view();
-  animation-range: 25vh 75vh;
+  animation-range: 25vh 75vh; */
 }
 
 #skills ul {
@@ -163,7 +164,7 @@ h2 {
   padding: 0.5rem 1rem;
   color: white;
   font-size: 2rem;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 #projects {

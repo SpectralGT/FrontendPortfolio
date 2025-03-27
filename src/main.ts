@@ -2,7 +2,6 @@ import "./style.css";
 import * as THREE from "three";
 import RAPIER from "@dimforge/rapier3d";
 import anime from "animejs";
-// import { simulationVertexShader, simulationFragmentShader, renderVertexShader, renderFragmentShader } from "./shader.js";
 
 // #region Hero Threejs
 
@@ -124,7 +123,7 @@ window.document.addEventListener("mousemove", (event) => {
   mouseBallBody.setTranslation(new RAPIER.Vector3(pos.x, pos.y, 0), true);
 });
 
-function animate() {
+function animate(element: Element, p0: { opacity: number; x: number[]; }, p1: { duration: number; easing: number[]; }) {
   requestAnimationFrame(animate);
 
   delta = clock.getDelta();
@@ -176,11 +175,11 @@ let timeline = anime.timeline({
   autoplay: true,
 });
 
-timeline.add({
-  duration: 1000,
-  delay: (_el, i) => 70 * i,
-  endDelay: 500,
-});
+// timeline.add({
+//   duration: 1000,
+//   delay: (_el, i) => 70 * i,
+//   endDelay: 500,
+// });
 
 timeline.add({
   targets: "h1 .letter",
@@ -192,153 +191,14 @@ timeline.add({
   endDelay: 500,
 });
 
-// #endregion
 
-// #region fluid Sim
 
 // @ts-ignore
+// #region Section Text fade in out.
 
-// const scene2 = new THREE.Scene();
-// const simScene = new THREE.Scene();
 
-// const camera2 = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-// // });
+  // #endregion
 
-// // @ts-ignore
-// const renderer2 = new THREE.WebGLRenderer({
-//     antialias: true,
-//     alpha: true,
-//     preserveDrawingBuffer: true,
-// });
 
-// renderer2.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-// renderer2.setSize(window.innerWidth, window.innerHeight);
-// // document.body.appendChild(renderer2.domElement);
 
-// const mouse = new THREE.Vector2();
-// let frame = 0;
-
-// const width = window.innerWidth * window.devicePixelRatio;
-// const height = window.innerHeight * window.devicePixelRatio;
-
-// const options = {
-//     format: THREE.RGBAFormat,
-//     type: THREE.FloatType,
-//     minFilter: THREE.LinearFilter,
-//     magFilter: THREE.LinearFilter,
-//     stencilBuffer: false,
-//     depthBuffer: false,
-// };
-
-// let rtA = new THREE.WebGLRenderTarget(width, height, options);
-// let rtB = new THREE.WebGLRenderTarget(width, height, options);
-
-// const simMaterial = new THREE.ShaderMaterial({
-//     uniforms: {
-//         textureA: { value: null },
-//         mouse: { value: mouse },
-//         resolution: { value: new THREE.Vector2(width, height) },
-//         time: { value: 0 },
-//         frame: { value: 0 },
-//     },
-//     vertexShader: simulationVertexShader,
-//     fragmentShader: simulationFragmentShader,
-// });
-
-// const renderMaterial = new THREE.ShaderMaterial({
-//     uniforms: {
-//         textureA: { value: null },
-//         textureB: { value: null },
-//     },
-//     vertexShader: renderVertexShader,
-//     fragmentShader: renderFragmentShader,
-//     transparent: true,
-// });
-
-// const plane = new THREE.PlaneGeometry(2, 2);
-// const simQuad = new THREE.Mesh(plane, simMaterial);
-// const renderQuad = new THREE.Mesh(plane, renderMaterial);
-
-// //@ts-ignore
-// simScene.add(simQuad);
-// scene2.add(renderQuad);
-
-// const canvas = document.createElement('canvas');
-// canvas.width = width;
-// canvas.height = height;
-// const ctx = canvas.getContext('2d', { alpha: true });
-
-// ctx!.fillStyle = '#fb7427';
-// ctx!.fillRect(0, 0, width, height)
-
-// const fontSize = Math.round(250 * window.devicePixelRatio);
-// ctx!.fillStyle = '#fef4b8';
-// ctx!.font = `bold ${fontSize}px Test Roboto`;
-// ctx!.textAlign = "center";
-// ctx!.textBaseline = "middle";
-// ctx!.textRendering = 'geometricPrecision';
-// ctx!.imageSmoothingEnabled = true;
-// ctx!.imageSmoothingQuality = 'high';
-// ctx!.fillText('softhorizon', width / 2, height / 2);
-
-// const textTexture = new THREE.CanvasTexture(canvas);
-// textTexture.minFilter = THREE.LinearFilter;
-// textTexture.magFilter = THREE.LinearFilter;
-// textTexture.format = THREE.RGBAFormat;
-
-// window.addEventListener('resize', () => {
-//     const newWidth = window.innerWidth * window.devicePixelRatio;
-//     const newHeight = window.innerHeight * window.devicePixelRatio;
-
-//     renderer2.setSize(window.innerWidth, window.innerHeight);
-//     rtA.setSize(newWidth, newHeight);
-//     rtB.setSize(newWidth, newHeight);
-//     simMaterial.uniforms.resolution.value.set(newWidth, newHeight);
-
-//     canvas.width = newWidth;
-//     canvas.height = newHeight;
-//     ctx!.fillStyle = '#fb7427';
-//     ctx?.fillRect(0, 0, newWidth, newHeight);
-
-//     const newFontSizze = Math.round(250 * window.devicePixelRatio);
-//     ctx!.fillStyle = '#fef4b8';
-//     ctx!.font = `bold ${newFontSizze}px Test Roboto`;
-//     ctx!.textAlign = "center";
-//     ctx!.textBaseline = "middle";
-//     ctx!.fillText('softhorizon', newWidth / 2, newHeight / 2);
-
-//     textTexture.needsUpdate = true;
-
-// })
-
-// renderer2.domElement.addEventListener('mousemove', (e) => {
-//     mouse.x = e.clientX * window.devicePixelRatio;
-//     mouse.y = (window.innerHeight - e.clientX) * window.devicePixelRatio;
-// })
-
-// renderer2.domElement.addEventListener("mouseleave", () => {
-//     mouse.set(0, 0);
-// })
-
-// const animate2 = () => {
-//     simMaterial.uniforms.frame.value = frame++;
-//     simMaterial.uniforms.time.value = performance.now() / 100;
-
-//     simMaterial.uniforms.textureA.value = rtA.texture;
-//     renderer2.render(simScene, camera2);
-
-//     renderMaterial.uniforms.textureA.value = rtB.texture;
-//     renderMaterial.uniforms.textureB.value = textTexture;
-//     renderer2.setRenderTarget(null);
-//     renderer2.render(scene2, camera2);
-
-//     const temp = rtA;
-//     rtA = rtB;
-//     rtB = temp;
-
-//     requestAnimationFrame(animate2);
-
-//     animate2();
-// };
-
-// endregion
+// #endregion
