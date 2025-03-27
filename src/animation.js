@@ -29,31 +29,31 @@ inView(".skills li", (element) => {
   return () => animate(element, { opacity: 0, x: -100 });
 });
 
-inView("#wrapper", (element) => {
-    animate(
-      "#wrapper .project",
-      { opacity: 1, scale: [0, 1] },
-      {
-        delay: stagger(0.1),
-        duration: 0.9,
-        // easing: [0.17, 0.55, 0.55, 1],
-      }
-    );
+// inView("#wrapper", (element) => {
+//     animate(
+//       "#wrapper .project",
+//       { opacity: 1, scale: [0, 1] },
+//       {
+//         delay: stagger(0.1),
+//         duration: 0.9,
+//         // easing: [0.17, 0.55, 0.55, 1],
+//       }
+//     );
   
-    return () => animate(element, { opacity: 0, scale: 0 });
-  });
+//     return () => animate(element, { opacity: 0, scale: 0 });
+//   });
   
-  inView("#wrapper", (element) => {
-    animate(
-      "#wrapper .project",
-      { opacity: 1, scale: [0, 1] },
-      {
-        delay: stagger(0.1),
-        duration: 0.9,
-        // easing: [0.17, 0.55, 0.55, 1],
-      }
-    );
+//   inView("#wrapper", (element) => {
+//     animate(
+//       "#wrapper .project",
+//       { opacity: 1, scale: [0, 1] },
+//       {
+//         delay: stagger(0.1),
+//         duration: 0.9,
+//         // easing: [0.17, 0.55, 0.55, 1],
+//       }
+//     );
   
-    return () => animate(element, { opacity: 0, scale: 0 });
-  });
+//     return () => animate(element, { opacity: 0, scale: 0 });
+//   });
   
