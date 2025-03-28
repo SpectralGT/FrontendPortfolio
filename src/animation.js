@@ -11,7 +11,7 @@ inView("section h2", (element) => {
     }
   );
 
-  return () => animate(element, { opacity: 0, x: -100 });
+  return () => animate(element, { opacity: 1, x: 0 });
 });
 
 inView(".skills li", (element) => {
@@ -26,7 +26,7 @@ inView(".skills li", (element) => {
     }
   );
 
-  return () => animate(element, { opacity: 0, x: -100 });
+  return () => animate(element, { opacity: 1, x: -0 });
 });
 
 inView("#wrapper", (element) => {
@@ -34,25 +34,27 @@ inView("#wrapper", (element) => {
     "#wrapper .project",
     { opacity: 1, scale: [0, 1] },
     {
+      type: "spring",
       delay: stagger(0.5),
       duration: 0.9,
       // easing: [0.17, 0.55, 0.55, 1],
     }
   );
 
-  return () => animate(element, { opacity: 0, scale: 0 });
+  return () => animate(element, { opacity: 1, scale: 1 });
 });
 
-//   inView("#wrapper", (element) => {
-//     animate(
-//       "#wrapper .project",
-//       { opacity: 1, scale: [0, 1] },
-//       {
-//         delay: stagger(0.1),
-//         duration: 0.9,
-//         // easing: [0.17, 0.55, 0.55, 1],
-//       }
-//     );
+inView(".timeline-wrapper", (element) => {
+  animate(
+    ".timeline-wrapper .box",
+    { opacity: 1, scale: [0, 1] },
+    {
+      type: "spring",
+      delay: stagger(0.1),
+      duration: 0.9,
+      // easing: [0.17, 0.55, 0.55, 1],
+    }
+  );
 
-//     return () => animate(element, { opacity: 0, scale: 0 });
-//   });
+  return () => animate(element, { opacity: 1, scale: 1 });
+});
