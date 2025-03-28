@@ -14,7 +14,7 @@ inView("section h2", (element) => {
   return () => animate(element, { opacity: 1, x: 0 });
 });
 
-inView(".skills li", (element) => {
+inView(".skills", (element) => {
   animate(
     ".skills li",
     { opacity: [0, 1], x: [-100, 0] },
